@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EmailLint - validate cross-client compatible emails</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="validate cross-client compatible emails (css, dom etc)">
+		<meta name="author" content="Luke Schafer">
+
+		<link href="/content/0.1/css/style.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="/content/0.1/js/script.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="#">EmailLint</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li class="active"><a href="#">Home</a></li>
+							<li><a href="api">API</a></li>
+							<li><a href="what">Sorry, What?</a></li>
+							<li><a href="help">Help Me!</a></li>
+							<li><a href="who">Who?</a></li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<header class="hero-unit">
+				<img src='/content/img/logo_sized.png' title='email lint logo' />
+				<h1>EmailLint</h1>
+				<p>validate cross-client compatible emails</p>
+			</header>
+			<section id="loading">Loading...</section>
+			<section id="content" class="hidden">
+				<form method="post" id="lint_form">
+					<fieldset>
+						<legend>Your HTML</legend>
+						<div class="">
+							<ul class="nav nav-pills">
+								<li class='active'><a href="#code" data-toggle="pill">HTML</a></li>
+								<li><a href="#preview" data-toggle="pill">Preview</a></li>
+							</ul>
+							<div class="tab-content container">
+								<div class="tab-pane active" id="code">
+									<textarea id="html" name='html'></textarea>
+								</div>
+								<div class="tab-pane" id="preview">
+									<iframe id="preview_frame"></iframe>
+								</div>
+							</div>
+							<div>
+								<button id='submit' type='submit' class='btn btn-success'>Check</button>
+								<button class='btn btn-danger' id='clear'>Clear</button>
+							</div>
+						</div>
+					</fieldset>
+					<fieldset>
+						<legend>Results</legend>
+						<div id="results"><i class='information'>enter your HTML above and click 'Check'</i></div>
+					</fieldset>
+					<fieldset>
+						<legend>
+							Options
+								<button class='btn btn-primary' id='select-all'><i class="icon-ok icon-white"></i> Select All</button>
+								<button class='btn btn-warning' id='clear-all'><i class="icon-remove icon-white"></i> Clear All</button>
+						</legend>
+						<div class="alert alert-info"><strong>FYI:</strong> The list of rules is constantly being updated.</div>
+						<div id='options' class='row-fluid'></div>
+					</fieldset>
+				</form>
+			<section>
+			<footer>
+				&copy; Copyright 2012 Luke Schafer - <a href='mailto:luke.schafer@gmail.com' alt='email me'>luke.schafer@gmail.com</a>
+			</footer>
+		</div>
+		<script type="text/javascript" language="JavaScript" src="http://idea.informer.com/tab6.js?domain=emaillint"></script><noscript><a href="http://emaillint.idea.informer.com">EmailLint feedback </a> <a href="http://idea.informer.com"><img src="http://widget.idea.informer.com/tmpl/images/widget_logo.jpg" /></a></noscript>
+	</body>
+</html>

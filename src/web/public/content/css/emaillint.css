@@ -1,0 +1,121 @@
+body {
+	font-family: "Open Sans Light", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+	font-weight:300;
+	padding-top: 60px;
+	padding-bottom: 40px;
+}
+@media (max-width: 767px) { body { padding-top: 0px; } }
+@media (max-width: 979px) { body { padding-top: 0px; } }
+h1 {
+	font-size:32px;
+	font-weight:300;
+}
+h2 {
+	font-size:24px;
+	font-weight:300;
+}
+h3 {
+	font-weight:300;
+}
+
+footer { margin-top:36px; }
+
+.hero-unit { position:relative; }
+.hero-unit img { position:absolute; top:50%; margin-top: -55px; left: 24px; }
+.hero-unit h1, .hero-unit p { margin-left: 132px; margin-bottom:0px }
+
+.CodeMirror { 
+	margin-bottom: 24px;
+}
+
+.hidden {
+	display:none;
+}
+
+i.information { color:#666;	}
+
+.info {
+	font-size:16px;
+	margin: 24px 0;
+}
+
+.no-points { 
+list-style-type:none;
+padding:0;margin-left:0;
+}
+
+.warning { 
+	color: #DD9300;
+}
+
+/* --- FORMS --- */
+
+fieldset
+{
+    border: none;
+    padding: 20px 0px;
+}
+fieldset legend
+{
+    font-size: 24px;
+	font-family: "Open Sans Light", "Open Sans", "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    line-height: normal;
+}
+fieldset iframe {
+	width: 99%;
+	height:300px;
+	border: 1px solid #ccc;
+	margin-bottom: 24px;
+}
+fieldset textarea {
+	font-family:"Courier New", "Courier";
+	width: 99%;
+	height:300px;
+}
+fieldset label {
+    display: block;
+    /*font-size: 18px;*/
+    margin: 12px 0 6px 0;
+}
+fieldset input[type=checkbox] {
+    /*line-height: 32px;*/
+	/*vertical-align:middle;*/
+	margin-right: 6px;
+	width: auto;
+}
+/*
+fieldset input, button {
+    line-height: 24px;
+    font-size: 18px;
+    border: solid 1px transparent;
+    border-style: solid;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: none;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+fieldset input {
+    height: 32px;
+    padding: 4px 6px;
+    width: 320px;
+    background-color: #f3f3f3;
+    color: #333;
+}
+fieldset input[type=checkbox] {
+    line-height: 32px;
+	vertical-align:middle;
+	margin-right: 6px;
+	width: auto;
+}
+fieldset button {
+	cursor:pointer;
+    padding: 12px 24px;
+	background-color: #6DC100;
+	color:#fff;
+}
+fieldset button:hover {
+	background-color: #60AA00;
+}*/

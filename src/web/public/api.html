@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>EmailLint - Programmer API</title>
+
+		<link href="/content/0.1/css/style.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+		<!--[if lt IE 9]>
+		  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="/content/0.1/js/script.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="brand" href="/">EmailLint</a>
+					<div class="nav-collapse">
+						<ul class="nav">
+							<li><a href="/">Home</a></li>
+							<li class="active"><a href="api">API</a></li>
+							<li><a href="what">Sorry, What?</a></li>
+							<li><a href="help">Help Me!</a></li>
+							<li><a href="who">Who?</a></li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<h1>Application Programming Interface (API)</h1>
+			<div style="margin-top:24px;" class="alert alert-info"><strong>Coming soon... </strong> EmailLint is under active (current) development, so expect updates here. For now, here's some basics:</div>
+			<div class="info row-fluid">
+				<div class="span6">
+					<strong>Request (basic usage)</strong>
+					<pre class="prettyprint linenums">curl http://emaillint.com/check
+    -d "data=&lt;p&gt;Hello, World! &lt;img src='cid:a.png'/&gt;&lt;/p&gt;"
+    -d "clients[]:GMail"
+    -d "clients[]:Yahoo"
+    -d "ignored[]:head_style"
+
+    Note: to test all clients, don't send any client[] params</pre>
+				</div>
+				<div class="span6">
+					<strong>Response</strong>
+					<pre class="prettyprint linenums">
+{
+  "success":false,
+  "ran":true,
+  "errors":[{
+    "category":"img",
+    "id":"img_alt",
+    "name":"Images should have \"alt\" attribute",
+    "extended":"In the case where images are not loaded, alt text should be provided to assist comprehension and screen readers",
+    "failed":1
+  },{
+    "category":"img",
+    "id":"img_size",
+    "name":"Images should have height/width specified",
+    "extended":"In the case where images are not loaded, having a height and width specified helps the document render as intended",
+    "failed":1
+  }]
+}</pre>
+				</div>
+			</div>
+			<div class="alert alert-warning"><strong>Warning!</strong> EmailLint actively throttles to prevent abuse. If you start getting <strong>403</strong> errors, wait a little while before trying again. This is a free service, play nice.</div>
+			<footer>
+				&copy; Copyright 2012 Luke Schafer - <a href='mailto:luke.schafer@gmail.com' alt='email me'>luke.schafer@gmail.com</a>
+			</footer>
+		</div>
+		<script type="text/javascript" language="JavaScript" src="http://idea.informer.com/tab6.js?domain=emaillint"></script><noscript><a href="http://emaillint.idea.informer.com">EmailLint feedback </a> <a href="http://idea.informer.com"><img src="http://widget.idea.informer.com/tmpl/images/widget_logo.jpg" /></a></noscript>
+	</body>
+</html>
