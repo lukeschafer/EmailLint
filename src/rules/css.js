@@ -47,6 +47,7 @@ module.exports = function(lint) {
 	lint('css', 'border_spacing', 'Disallow "border-spacing" on tables', 'CSS style "border-spacing"', ['Outlook07', 'Outlook03'], disableStyleOnTables('border-spacing'));
 	lint('css', 'caption_side', 'Disallow "caption-side" on tables', 'CSS style "caption-side"', ['Outlook07', 'Outlook03', 'IPhone', 'Apple'], disableStyleOnTables('caption-side'));
 	lint('css', 'empty_cells', 'Disallow "empty-cells" on tables', 'CSS style "empty-cells"', ['Outlook07', 'Outlook03'], disableStyleOnTables('empty-cells'));
+	lint('css', 'Margin', '"Margin[-*] should have capital "M" for outlook.com', ['Outlook.com'], disableStyleOnAll('margin', 'margin-top', 'margin-left', 'margin-botton', 'margin-right')).warning = true;;
 	
 	lint('css', 'prefix_ms', 'Warn when vendor prefix is used: "-ms-"', 'Vendor prefixes are intended for display styles in web browsers and are unlikely to be supported in most clients.', disableVendorPrefix('-ms-')).warning = true;
 	lint('css', 'prefix_mso', 'Warn when vendor prefix is used: "mso-"', 'Vendor prefixes are intended for display styles in web browsers and are unlikely to be supported in most clients.', disableVendorPrefix('mso-')).warning = true;
@@ -57,11 +58,12 @@ module.exports = function(lint) {
 	lint('css', 'prefix_webkit', 'Warn when vendor prefix is used: "-webkit-"', 'Vendor prefixes are intended for display styles in web browsers and are unlikely to be supported in most clients.', disableVendorPrefix('-webkit-')).warning = true;
 	lint('css', 'prefix_khtml', 'Warn when vendor prefix is used: "-khtml-"', 'Vendor prefixes are intended for display styles in web browsers and are unlikely to be supported in most clients.', disableVendorPrefix('-khtml-')).warning = true;
 		
-	function disableStyleOnAll(style)
+	function disableStyleOnAll(style, maintainCase)
 	{
+		if (typeof style == 'string') style = [style];
 		return function(window, callback) {
 			var failures = lint.testForEach(window, window.$('*'), function(e) {
-				return lint.helpers.noStyle(e, [style]);
+				return lint.helpers.noStyle(e, style, maintainCase);
 			});
 			callback(!failures, failures);
 		}

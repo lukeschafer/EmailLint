@@ -87,7 +87,7 @@ lint.createJQueryHelpers = function(window) {
 		if (!data) me.data('cachedStyles', data = css(me));
 		return data;
 		
-		function css(a){
+		function css(a, maintainCase){
 			var sheets = window.document.styleSheets, o = {};
 			
 			var styleTags = window.$('style');
@@ -98,28 +98,29 @@ lint.createJQueryHelpers = function(window) {
 				var rules = sheets[i].rules || sheets[i].cssRules;
 				for(var r in rules) {
 					if(a.is(rules[r].selectorText)) {
-						o = window.$.extend(o, css2json(rules[r].style), css2json(a.attr('style')));
+						o = window.$.extend(o, css2json(rules[r].style, maintainCase), css2json(a.attr('style'), maintainCase));
 					}
 				}
 			}
-			o = window.$.extend(o, css2json(a.attr('style')));
+			o = window.$.extend(o, css2json(a.attr('style'), maintainCase));
 			return o;
 		}
 
-		function css2json(css){
+		function css2json(css, maintainCase){
+			function changeCase(val) { return maintainCase ? val : val.toLowerCase(); }
 			var s = {};
 			if(!css) return s;
 			if(css instanceof cssom.CSSStyleDeclaration) {
 				for(var i in css) {
 					if((css[i]).toLowerCase) {
-						s[(css[i]).toLowerCase()] = (css[css[i]]);
+						s[changeCase((css[i]))] = (css[css[i]]);
 					}
 				}
 			} else if(typeof css == "string") {
 				css = css.split("; ");          
 				for (var i in css) {
 					var l = css[i].split(": ");
-					s[l[0].toLowerCase()] = (l[1]);
+					s[changeCase(l[0])] = (l[1]);
 				};
 			}
 			return s;
@@ -150,7 +151,7 @@ lint.helpers = {
 		}
 		return true;
 	},
-	noStyle: function(e, disallowed) {
+	noStyle: function(e, disallowed, maintainCase) {
 		if (typeof disallowed == 'string') disallowed = [disallowed];
 		var styles = e.getStyles();
 		for(var i = 0; i < disallowed.length; i++) {

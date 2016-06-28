@@ -1,0 +1,56 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'c:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'node-es5' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose install initial load of C:\Users\lschafer\AppData\Roaming\npm\package.json
+5 verbose readDependencies loading dependencies from C:\Users\lschafer\AppData\Roaming\npm\package.json
+6 silly cache add args [ 'node-es5', null ]
+7 verbose cache add spec node-es5
+8 silly cache add parsed spec { raw: 'node-es5',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'node-es5',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: '*',
+8 silly cache add   type: 'range' }
+9 silly addNamed node-es5@*
+10 verbose addNamed "*" is a valid semver range for node-es5
+11 silly addNameRange { name: 'node-es5', range: '*', hasData: false }
+12 silly mapToRegistry name node-es5
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/node-es5
+16 verbose addNameRange registry:https://registry.npmjs.org/node-es5 not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/node-es5
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 10:11:05 AM
+20 verbose request id aa1c389f5164179b
+21 http request GET https://registry.npmjs.org/node-es5
+22 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+23 info attempt registry request try #2 at 10:11:36 AM
+24 http request GET https://registry.npmjs.org/node-es5
+25 info retry will retry, error on last attempt: Error: connect ETIMEDOUT
+26 info attempt registry request try #3 at 10:12:57 AM
+27 http request GET https://registry.npmjs.org/node-es5
+28 verbose stack Error: connect ETIMEDOUT
+28 verbose stack     at exports._errnoException (util.js:746:11)
+28 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1010:19)
+29 verbose cwd C:\Users\lschafer\Documents\GitHub\lukeschafer\EmailLint\src
+30 error Windows_NT 6.1.7601
+31 error argv "c:\\Program Files\\nodejs\\\\node.exe" "c:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "node-es5"
+32 error node v0.12.7
+33 error npm  v2.11.3
+34 error code ETIMEDOUT
+35 error errno ETIMEDOUT
+36 error syscall connect
+37 error network connect ETIMEDOUT
+37 error network This is most likely not a problem with npm itself
+37 error network and is related to network connectivity.
+37 error network In most cases you are behind a proxy or have bad network settings.
+37 error network
+37 error network If you are behind a proxy, please make sure that the
+37 error network 'proxy' config is set properly.  See: 'npm help config'
+38 verbose exit [ 1, true ]
