@@ -1,6 +1,8 @@
 EmailLint
 =========
 
+*NOTE* Hosting of this project has lapsed, as has (obviously) keeping it up to date. I may get around to doing it again but it's super low on my priority list right now.
+
 Validate cross-client compatible emails. Written in node.js by Luke Schafer. See it in action at http://emaillint.com/
 
 # Overview
